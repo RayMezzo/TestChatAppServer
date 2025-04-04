@@ -9,10 +9,13 @@ const { Server } = require("socket.io");
 //これと意味は同じ。
 
 const io = new Server(server, {
-    cors: {
-        origin: ["http://localhost:3000", "https://testchatappserver.onrender.com"], // Render サーバーの URL を追加
-    }
+  cors: {
+    origin: ["http://localhost:3000", "https://your-deployed-client-url.com"],  // クライアントURLを確認して修正
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  },
 });
+
 
 //Serverクラスに対してserverを渡して、ioというインスタンスを作った。
 //このServerクラスの中身の部分(コンストラクタ)とかは、socket.ioの開発者しかわからんけど、
