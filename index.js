@@ -8,11 +8,12 @@ const { Server } = require("socket.io");
 // const Server = require("socket.io").Server;
 //これと意味は同じ。
 
-const io = new Server(server , {
+const io = new Server(server, {
     cors: {
-        origin :["http://localhost:3000"],
+        origin: ["http://localhost:3000", "https://testchatappserver.onrender.com"], // Render サーバーの URL を追加
     }
 });
+
 //Serverクラスに対してserverを渡して、ioというインスタンスを作った。
 //このServerクラスの中身の部分(コンストラクタ)とかは、socket.ioの開発者しかわからんけど、
 //とりあえずこのServerクラスの引数にserverを入れれば、ソケット通信ができるんや。
